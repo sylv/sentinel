@@ -5,15 +5,14 @@ Like `nodemon`, sentinel will watch files and restart a process when they change
 ## usage
 
 `sentinel ./src/index.js`
-`sentinel --help`
 
-## passing options
+> This is the same as `node ./src/index.js`
 
-Use `--` to separate sentinel options from everything else. In this example, `-r @swc/register` will be passed to node and `--example` will be passed to the application.
+`sentinel -r @swc/register ./src/index.ts -- --example`
 
-> `sentinel -r @swc/register ./src/index.ts -- --example`
+> Use `--` to separate sentinel options from everything else. In this example, `-r @swc/register` will be passed to node by sentinel and `--example` will be passed to the application.
 
-_note: `--require` is manually handled by sentinel, other node flags cannot currently be passed._
+> _note: `--require` is manually handled by sentinel, other node flags cannot currently be passed._
 
 # todo
 
