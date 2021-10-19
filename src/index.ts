@@ -13,7 +13,7 @@ const watch = chokidar.watch(cli.flags.watch ?? [], {
 });
 
 watch.on("change", (path) => {
-  log.debug(`File "${path}" changed`);
+  log.info(`File "${path}" changed, restarting…`);
   respawn();
 });
 
