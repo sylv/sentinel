@@ -11,7 +11,7 @@ const flagSplit = allArgs.indexOf("--");
 const ourArgs = flagSplit === -1 ? allArgs : allArgs.slice(0, flagSplit);
 const childArgv = flagSplit === -1 ? [] : allArgs.slice(flagSplit + 1);
 
-// todo: this should be auto-generated
+// fixme: this should be auto-generated
 const cli = meow(
   `
     ${chalk.underline("sentinel")}: watch require()'d files for changes and restart the application
@@ -24,7 +24,7 @@ const cli = meow(
              )}  An additional list of files to watch for changes, such as json files that aren't loaded by require().
 
       ${chalk.blueBright("--watch-ignore")}  A list of files to ignore changes in.
-            default:  **node_modules**
+            default:  **/node_modules/**/*.{js,json}
 
              ${chalk.blueBright("--debug")}  Whether to log debug messages.
 
@@ -56,7 +56,7 @@ const cli = meow(
       },
       watchIgnore: {
         type: "string",
-        default: "**node_modules**",
+        default: "**/node_modules/**/*.{js,json}",
         isRequired: false,
       },
       debug: {

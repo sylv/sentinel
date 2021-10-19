@@ -1,5 +1,7 @@
 # sentinel
 
+> I quickly threw this together over a couple hours so at the moment it's pretty experimental and has a lot of things that have to be improved, like documentation. You're free to use it but I wouldn't recommend it until it's a bit more stable and has other fixes thrown in.
+
 Like `nodemon`, sentinel will watch files and restart a process when they change. Unlike `nodemon`, sentinel will automatically detect the files it should watch based on what your application imports. This is favourable in a monorepo where you might have a couple processes running at once and don't want them all to restart because you changed a dependency only one of those processes depended on.
 
 ## usage
