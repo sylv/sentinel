@@ -2,5 +2,9 @@
   "extends": "@ryanke",
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "unicorn/no-process-exit": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }

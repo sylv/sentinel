@@ -1,16 +1,23 @@
-# @ryanke/typescript-template
+# sentinel
 
-A simple template I use for new projects.
+Like `nodemon`, sentinel will watch files and restart a process when they change. Unlike `nodemon`, sentinel will automatically detect the files it should watch based on what your application imports. This is favourable in a monorepo where you might have a couple processes running at once and don't want them all to restart because you changed a dependency only one of those processes depended on.
 
-# included
+## usage
 
-- [swc](https://github.com/swc-project/swc) for stupidly fast `pnpm test` and `pnpm watch` with support for decorator metadata.
-- [tsup](https://github.com/egoist/tsup) for stupidly fast `pnpm build`
-  - tsup doesn't support decorator metadata.
-- [eslint](https://eslint.org/) and [prettier](https://prettier.io/) (via [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)) for linting and formatting files
+`sentinel ./src/index.js`
+`sentinel --help`
+
+## passing options
+
+Use `--` to separate sentinel options from everything else. In this example, `-r @swc/register` will be passed to node and `--example` will be passed to the application.
+
+> `sentinel -r @swc/register ./src/index.ts -- --example`
+
+_note: `--require` is manually handled by sentinel, other node flags cannot currently be passed._
 
 # todo
 
-- Replace `tsup` with a tool that uses `swc` because `esbuild` that `tsup` uses doesn't support decorator metadata.
-  - Currently `tsup` is my go-to because it's convenient and generates `.d.ts` files.
-  - To use `swc`, we would have to find a `tsup`-like tool and that is easier said then done. 
+- Test `--watch-ignore` with regex
+- Test `--executable` with `ts-node`
+- Require caching? That would be a good combo with some slower compilers and would outright replace things like `ts-node-dev`.
+- Automatically extract our flags from the rest and make the `--` separator unnecessary

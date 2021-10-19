@@ -1,13 +1,16 @@
 {
-  "name": "@ryanke/template",
+  "name": "@ryanke/sentinel",
   "version": "0.0.1",
-  "repository": "https://github.com/sylv/template.git",
+  "repository": "https://github.com/sylv/sentinel.git",
   "author": "Ryan <ryan@sylver.me>",
   "license": "MIT",
   "private": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "dist/index.d.ts",
+  "bin": {
+    "sentinel": "./dist/index.js"
+  },
   "keywords": [
     "template",
     "typescript"
@@ -17,27 +20,31 @@
   ],
   "scripts": {
     "test": "jest",
-    "start": "node ./dist/index.js",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "watch": "nodemon --exec \"node -r @swc/register\" ./src/index.ts",
+    "build": "node ./scripts/build.js",
     "prepack": "pnpm run build",
     "lint": "eslint --fix ./src/**/*.{ts,tsx,js,jsx}"
   },
   "devDependencies": {
-    "@ryanke/eslint-config": "^1.0.1",
-    "@swc/core": "^1.2.82",
-    "@swc/jest": "^0.2.2",
+    "@ryanke/eslint-config": "^1.0.3",
+    "@swc/core": "^1.2.95",
+    "@swc/jest": "^0.2.4",
     "@swc/register": "^0.1.7",
-    "@types/jest": "^26.0.24",
-    "@types/node": "14",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.24.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.3",
+    "@types/which": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.2",
+    "esbuild": "^0.13.4",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^35.0.0",
-    "jest": "^26",
-    "nodemon": "^2.0.12",
-    "tsup": "^4.12.5",
-    "typescript": "^4.3.5"
+    "eslint-plugin-unicorn": "^37.0.1",
+    "jest": "^27.2.5",
+    "meow": "9",
+    "nodemon": "^2.0.13",
+    "pirates": "^4.0.1",
+    "read-pkg-up": "7",
+    "typescript": "^4.4.3"
   }
 }
