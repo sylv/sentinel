@@ -12,8 +12,11 @@
     "sentinel": "./dist/index.js"
   },
   "keywords": [
-    "template",
-    "typescript"
+    "monitor",
+    "development",
+    "restart",
+    "autoload",
+    "reload"
   ],
   "files": [
     "dist"
